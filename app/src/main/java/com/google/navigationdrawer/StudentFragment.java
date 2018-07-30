@@ -1,6 +1,7 @@
 package com.google.navigationdrawer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.navigationdrawer.Activities.StudentDetailActivity;
 import com.google.navigationdrawer.Adapters.StudentAdapter;
 import com.google.navigationdrawer.Models.Student;
 import com.google.navigationdrawer.SQLite.DBHelper;
@@ -20,7 +22,7 @@ import com.google.navigationdrawer.SQLite.DBHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentFragment extends Fragment{
+public class StudentFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     ArrayAdapter<Student> adapter;
     ListView listView;
@@ -33,23 +35,23 @@ public class StudentFragment extends Fragment{
         students = new ArrayList<>();
 
 
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی مقدسی","1243525490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("حسین صفری","98937423525490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی ممتاز","98931234525490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("حسین صداقت","9812341525490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی محمدی","989371432490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی گلابی","989371524390", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی خربزه","98932325490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی دنباله رو","989375225490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی کچل","98935425490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی میخوم","98945525490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی شسی","989371235490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی یسش","989371435490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی سس","9893745525490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی یی","98937123490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی ضصث","98425490", "پشتیبان"));
+//        DBHelper.getInstance(getContext()).insertNewStudent(new Student("علی ثص","9893723490", "پشتیبان"));
 
-//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
-//        students.add(new Student("تقی محمدی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
-//        students.add(new Student("محمد نجم آبادی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("جواد محمدی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
-//        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
-//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("تقی محمدی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
-//        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
-//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("جواد محمدی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-//        students.add(new Student("محمد نجم آبادی","989371525490", "پشتیبان")) ;
 
     }
 
@@ -61,6 +63,8 @@ public class StudentFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_student, container , false);
 
         listView = rootView.findViewById(R.id.my_listview);
+
+        listView.setOnItemClickListener(this);
 
         return rootView;
     }
@@ -76,4 +80,15 @@ public class StudentFragment extends Fragment{
         listView.setAdapter(adapter);
 
     }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+        Intent intent = new Intent(getContext(), StudentDetailActivity.class);
+
+        startActivity(intent);
+    }
+
 }

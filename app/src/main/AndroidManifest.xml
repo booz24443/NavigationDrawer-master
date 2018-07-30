@@ -11,12 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
             android:label=""
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/AppTheme.SplashActivity">
@@ -26,12 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.ImportContactsActivity"
-            android:label=""/>
-
-        <activity android:name=".Activities.NewStudentActivity"></activity>
+            android:label="" />
+        <activity android:name=".Activities.NewStudentActivity" />
+        <activity android:name=".Activities.StudentDetailActivity"></activity>
     </application>
 
 </manifest>
