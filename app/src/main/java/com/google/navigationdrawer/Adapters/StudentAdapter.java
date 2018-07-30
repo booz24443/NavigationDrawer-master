@@ -49,13 +49,13 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
     private class ViewHolder {
 
-        private TextView phoneNumber, name, supporter;
+        private TextView tvPhoneNumber, tvName, tvSupporter;
 
         public ViewHolder(View view) {
 
-            phoneNumber = view.findViewById(R.id.list_item_phonenum);
-            name = view.findViewById(R.id.list_item_name);
-            supporter = view.findViewById(R.id.list_item_supporter);
+            tvPhoneNumber = view.findViewById(R.id.list_item_phonenum);
+            tvName = view.findViewById(R.id.list_item_name);
+            tvSupporter = view.findViewById(R.id.list_item_supporter);
 
         }
 
@@ -63,9 +63,19 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
             Student student = students.get(position);
 
-            phoneNumber.setText(student.getPhone1());
-            name.setText(student.getFirstName());
-            supporter.setText(student.getSupporter());
+            tvPhoneNumber.setText(student.getPhone1());
+            tvSupporter.setText(student.getSupporter());
+
+            //display student first name if exists
+            if (student.getFirstName() != null) {
+
+                tvName.setText(student.getFirstName() + " " + student.getLastName());
+            } else {
+
+                tvName.setText(student.getLastName());
+            }
+
+
 
         }
     }

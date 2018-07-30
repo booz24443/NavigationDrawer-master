@@ -27,7 +27,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.ImportContactsActivity" />
+        <activity
+            android:name=".Activities.ImportContactsActivity"
+            android:label=""/>
 
         <activity android:name=".Activities.NewStudentActivity"></activity>
     </application>

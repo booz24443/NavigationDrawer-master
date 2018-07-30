@@ -20,6 +20,8 @@ import com.google.navigationdrawer.StudentFragment;
 import com.google.navigationdrawer.ProfileFragment;
 import com.google.navigationdrawer.R;
 
+import net.sqlcipher.database.SQLiteDatabase;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //init SQLite Cipher
+        SQLiteDatabase.loadLibs(this);
 
         drawer = findViewById(R.id.drawer_layout);
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.navigationdrawer.Adapters.StudentAdapter;
 import com.google.navigationdrawer.Models.Student;
+import com.google.navigationdrawer.SQLite.DBHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,22 +31,25 @@ public class StudentFragment extends Fragment{
         super.onCreate(savedInstanceState);
 
         students = new ArrayList<>();
-        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
-        students.add(new Student("تقی محمدی","989371525490", "پشتیبان")) ;
-        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
-        students.add(new Student("محمد نجم آبادی","989371525490", "پشتیبان")) ;
-        students.add(new Student("جواد محمدی","989371525490", "پشتیبان")) ;
-        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
-        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
-        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-        students.add(new Student("تقی محمدی","989371525490", "پشتیبان")) ;
-        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
-        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
-        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-        students.add(new Student("جواد محمدی","989371525490", "پشتیبان")) ;
-        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
-        students.add(new Student("محمد نجم آبادی","989371525490", "پشتیبان")) ;
+
+
+
+//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
+//        students.add(new Student("تقی محمدی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
+//        students.add(new Student("محمد نجم آبادی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("جواد محمدی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
+//        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
+//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("تقی محمدی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("حسین خوش کردار","989371525490", "پشتیبان")) ;
+//        students.add(new Student("حسین کاسپور","989371525490", "پشتیبان")) ;
+//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("جواد محمدی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("علی مقدسی","989371525490", "پشتیبان")) ;
+//        students.add(new Student("محمد نجم آبادی","989371525490", "پشتیبان")) ;
 
     }
 
@@ -58,10 +62,18 @@ public class StudentFragment extends Fragment{
 
         listView = rootView.findViewById(R.id.my_listview);
 
-        adapter = new StudentAdapter(getActivity(), students);
-        listView.setAdapter(adapter);
-
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //to refresh student list after changes
+        students = DBHelper.getInstance(getContext()).getAllStudents();
+        adapter = new StudentAdapter(getActivity(), students);
+
+        listView.setAdapter(adapter);
+
+    }
 }

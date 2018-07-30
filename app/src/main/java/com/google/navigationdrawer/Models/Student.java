@@ -1,6 +1,7 @@
 package com.google.navigationdrawer.Models;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 
 import com.google.navigationdrawer.SQLite.DBHelper;
 
@@ -20,8 +21,8 @@ public class Student {
 
     }
 
-    public Student(String firstName, String phone1, String supporter) {
-        this.firstName = firstName;
+    public Student(String lastName, String phone1, String supporter) {
+        this.lastName = lastName;
         this.phone1 = phone1;
         this.supporter = supporter;
     }
@@ -112,5 +113,25 @@ public class Student {
         values.put(DBHelper.CLM_PARENT_PHONE, parentPhone);
 
         return values;
+    }
+
+    public static Student cursorToStudent(Cursor cursor){
+
+        Student student = new Student();
+
+        student.setFirstName(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_FIRST_NAME)));
+        student.setLastName(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_LAST_NAME)));
+
+        student.setLevel(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_LEVEL)));
+        student.setMajor(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_MAJOR)));
+
+        student.setSupporter(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_SUPPORTER)));
+        student.setBirthDate(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_BIRTH)));
+
+        student.setPhone1(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_PHONE1)));
+        student.setPhone2(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_PHONE2)));
+        student.setParentPhone(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_PARENT_PHONE)));
+
+        return student;
     }
 }

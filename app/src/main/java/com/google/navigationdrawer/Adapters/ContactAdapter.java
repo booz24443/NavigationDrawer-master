@@ -70,6 +70,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
             name.setText(contact.getName());
 
+                //dividing phone numbers to TextViews
                 String[] phoneNumber = contact.getPhone().split("z");
 
                 for (int i = 0; i < phoneNumber.length; i++) {

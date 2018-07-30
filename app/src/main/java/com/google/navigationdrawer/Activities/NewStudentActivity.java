@@ -31,15 +31,11 @@ public class NewStudentActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_student);
 
-        SQLiteDatabase.loadLibs(this);
-
         initViews();
 
         setSpinners();
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
 
         imgMore.setOnClickListener(this);
@@ -118,7 +114,7 @@ public class NewStudentActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_new_student, menu);
+        getMenuInflater().inflate(R.menu.menu_commit, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -152,7 +148,7 @@ public class NewStudentActivity extends AppCompatActivity implements View.OnClic
                 student.setPhone2(edtPhone2.getText().toString().trim());
                 student.setParentPhone(edtParentPhone.getText().toString().trim());
 
-                DBHelper.getInstance(this).insertStudent(student);
+                DBHelper.getInstance(this).insertNewStudent(student);
             } else {
 
                 Toast.makeText(this,"فیلد های نام و شماره نباید خالی باشند", Toast.LENGTH_SHORT).show();

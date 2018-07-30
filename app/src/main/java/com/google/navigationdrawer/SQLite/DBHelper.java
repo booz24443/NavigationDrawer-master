@@ -1,13 +1,17 @@
 package com.google.navigationdrawer.SQLite;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.navigationdrawer.Models.Contact;
 import com.google.navigationdrawer.Models.Student;
 
+import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -35,7 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
             CLM_SUPPORTER, CLM_PHONE1, CLM_PHONE2, CLM_PARENT_PHONE
     };
 
-    private static final String CMD = "CREATE TABLE IF NOT EXISTS '" + TABLE_NAME  + "' ( '" +
+    private static final String CMD = "CREATE TABLE IF NOT EXISTS '" + TABLE_NAME + "' ( '" +
             CLM_FIRST_NAME + "' TEXT, '" +
             CLM_LAST_NAME + "' TEXT NOT NULL, '" +
             CLM_LEVEL + "' TEXT, '" +
@@ -63,19 +67,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(CMD);
-        Log.i("MYTAG" , "Table created");
+        Log.i("MYTAG", "Table created");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        Log.i("MYTAG" , "Table dropped");
+        Log.i("MYTAG", "Table dropped");
 
         onCreate(db);
     }
 
-    public void insertStudent(Student student) {
+    public void insertNewStudent(Student student) {
 
         SQLiteDatabase db = getWritableDatabase(PASS_PHRASE);
 
@@ -90,6 +94,42 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void insertContact(Contact contact) {
 
+        SQLiteDatabase db = getWritableDatabase(PASS_PHRASE);
 
+        long insertId = db.insert(TABLE_NAME, null, contact.getContentValues());
+
+        if (insertId == -1) {
+            Log.i("MYTAG", "FAILED TO INSERT");
+
+        } else {
+            Log.i("MYTAG", "Insert ID wanst -1");
+        }
+        db.close();
+
+    }
+
+    public List<Student> getAllStudents() {
+
+        SQLiteDatabase db = getReadableDatabase(PASS_PHRASE);
+        List<Student> students = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM '" + TABLE_NAME + "'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                //process each row
+                Student student = Student.cursorToStudent(cursor);
+                students.add(student);
+
+            } while (cursor.moveToNext());
+
+        }
+
+        cursor.close();
+        db.close();
+
+        return students;
+    }
 }
