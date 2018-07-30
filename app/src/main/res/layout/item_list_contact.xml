@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:padding="20dp"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    tools:context=".Activities.ImportContactsActivity">
+
+    <ImageView
+        android:id="@+id/ic_contact_name"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/ic_person_24dp"
+        />
+
+    <ImageView
+        android:id="@+id/ic_contact_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ic_contact_name"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/ic_phone_24dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_toLeftOf="@id/ic_contact_name"
+        android:text="حسین کاس پور"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_phone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/ic_contact_name"
+        android:text="989371525490"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_phone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/tv_contact_phone1"
+        android:text="989371525490"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_phone3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="60dp"
+        android:layout_toLeftOf="@id/ic_contact_name"
+        android:text="989371525490"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_phone4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_toLeftOf="@id/tv_contact_phone1"
+        android:text="989371525490"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_phone5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="90dp"
+        android:layout_toLeftOf="@id/ic_contact_name"
+        android:text="989371525490"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_phone6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_toLeftOf="@id/tv_contact_phone1"
+        android:text="989371525490"
+        />
+
+
+</RelativeLayout>

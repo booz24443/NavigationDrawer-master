@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!-- for using refrences from tools or android must use these commands:
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" -->
+
+    <!-- showIn previews menu in navigation view but also makes trouble in rendering it in preview -->
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_students"
+            android:icon="@drawable/ic_people"
+            android:title="دانش آموز ها"/>
+
+        <item android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_note"
+            android:title="یادداشت ها"/>
+
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_event"
+            android:title="برنامه کاری"/>
+
+        <item android:id="@+id/nav_ss"
+            android:icon="@drawable/ic_person_pin"
+            android:title="پروفایل"/>
+    </group>
+
+
+        <item android:id="@+id/nav_share"
+            android:icon="@drawable/ic_settings"
+            android:title="تنظیمات"/>
+
+        <item android:id="@+id/nav_send"
+            android:icon="@drawable/ic_info"
+            android:title="درباره ما"/>
+
+
+
+
+</menu>

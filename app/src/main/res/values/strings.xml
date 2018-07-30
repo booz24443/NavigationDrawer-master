@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">همیار مشاور</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string-array name="levels">
+
+        <item>دهم</item>
+        <item>یازدهم</item>
+        <item>دوازدهم</item>
+        <item>فارغ التحصیل</item>
+    </string-array>
+
+    <string-array name="majors">
+
+        <item>تجربی</item>
+        <item>ریاضی</item>
+        <item>انسانی</item>
+    </string-array>
+
+</resources>
