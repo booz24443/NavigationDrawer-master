@@ -1,4 +1,4 @@
-package com.google.navigationdrawer.Activities;
+package com.google.navigationdrawer.activities;
 
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +12,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.navigationdrawer.Models.Student;
+import com.google.navigationdrawer.models.Student;
 import com.google.navigationdrawer.R;
 import com.google.navigationdrawer.SQLite.DBHelper;
-
-import net.sqlcipher.database.SQLiteDatabase;
 
 public class NewStudentActivity extends AppCompatActivity implements View.OnClickListener {
 

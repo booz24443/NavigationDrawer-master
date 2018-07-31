@@ -1,11 +1,13 @@
-package com.google.navigationdrawer.Models;
+package com.google.navigationdrawer.models;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.navigationdrawer.SQLite.DBHelper;
 
-public class Student {
+public class Student implements Parcelable{
 
     private String firstName;
     private String lastName;
@@ -21,11 +23,20 @@ public class Student {
 
     }
 
-    public Student(String lastName, String phone1, String supporter) {
-        this.lastName = lastName;
-        this.phone1 = phone1;
-        this.supporter = supporter;
+
+    public Student(Parcel parcel) {
+
+        this.firstName = parcel.readString();
+        this.lastName = parcel.readString();
+        this.level = parcel.readString();
+        this.major = parcel.readString();
+        this.birthDate = parcel.readString();
+        this.supporter = parcel.readString();
+        this.phone1 = parcel.readString();
+        this.phone2 = parcel.readString();
+        this.parentPhone = parcel.readString();
     }
+
 
     public String getLastName() {
         return lastName;
@@ -134,4 +145,36 @@ public class Student {
 
         return student;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(level);
+        dest.writeString(major);
+        dest.writeString(birthDate);
+        dest.writeString(supporter);
+        dest.writeString(phone1);
+        dest.writeString(phone2);
+        dest.writeString(parentPhone);
+
+    }
+
+    public static Creator<Student> CREATOR = new Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel source) {
+            return new Student(source);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
 }

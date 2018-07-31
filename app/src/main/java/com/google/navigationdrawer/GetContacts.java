@@ -4,9 +4,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
-import android.util.Log;
 
-import com.google.navigationdrawer.Models.Contact;
+import com.google.navigationdrawer.models.Contact;
 
 import java.util.ArrayList;
 

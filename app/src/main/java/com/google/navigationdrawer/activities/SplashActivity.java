@@ -1,4 +1,4 @@
-package com.google.navigationdrawer.Activities;
+package com.google.navigationdrawer.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

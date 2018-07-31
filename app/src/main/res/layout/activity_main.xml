@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:layoutDirection="rtl"
-    tools:context=".Activities.MainActivity"
+    tools:context=".activities.MainActivity"
     tools:openDrawer="start">
     <!-- tools:openDrawer="start" previews drawer opened -->
     <!-- android:fitsSystemWindows="true"

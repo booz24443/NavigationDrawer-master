@@ -3,8 +3,8 @@ package com.google.navigationdrawer.SQLite;
 import android.content.Context;
 import android.util.Log;
 
-import com.google.navigationdrawer.Models.Contact;
-import com.google.navigationdrawer.Models.Student;
+import com.google.navigationdrawer.models.Contact;
+import com.google.navigationdrawer.models.Student;
 
 import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;

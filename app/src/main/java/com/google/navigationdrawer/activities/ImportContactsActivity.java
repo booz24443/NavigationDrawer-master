@@ -1,4 +1,4 @@
-package com.google.navigationdrawer.Activities;
+package com.google.navigationdrawer.activities;
 
 import android.os.AsyncTask;
 import android.os.Build;
@@ -13,16 +13,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.google.navigationdrawer.Adapters.ContactAdapter;
+import com.google.navigationdrawer.adapters.ContactAdapter;
 import com.google.navigationdrawer.GetContacts;
-import com.google.navigationdrawer.Models.Contact;
+import com.google.navigationdrawer.models.Contact;
 import com.google.navigationdrawer.R;
 import com.google.navigationdrawer.SQLite.DBHelper;
 
-import net.sqlcipher.database.SQLiteDatabase;
-
 import java.util.ArrayList;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class ImportContactsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 

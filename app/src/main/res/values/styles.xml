@@ -18,4 +18,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.DetailStudentActivity">
+        <item name="android:typeface">serif</item>
+    </style>
+
 </resources>

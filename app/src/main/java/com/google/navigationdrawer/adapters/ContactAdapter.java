@@ -1,4 +1,4 @@
-package com.google.navigationdrawer.Adapters;
+package com.google.navigationdrawer.adapters;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.google.navigationdrawer.Models.Contact;
+import com.google.navigationdrawer.models.Contact;
 import com.google.navigationdrawer.R;
 
 import java.util.List;

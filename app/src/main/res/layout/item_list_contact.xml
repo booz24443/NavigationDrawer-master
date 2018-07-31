@@ -7,7 +7,7 @@
     android:gravity="right"
     android:padding="20dp"
     android:background="?android:attr/activatedBackgroundIndicator"
-    tools:context=".Activities.ImportContactsActivity">
+    tools:context=".activities.ImportContactsActivity">
 
     <ImageView
         android:id="@+id/ic_contact_name"

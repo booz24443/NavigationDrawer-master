@@ -1,4 +1,4 @@
-package com.google.navigationdrawer.Models;
+package com.google.navigationdrawer.models;
 
 import android.content.ContentValues;
 

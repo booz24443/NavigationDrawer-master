@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     android:textDirection="rtl"
-    tools:context=".Activities.StudentDetailActivity">
+    tools:context=".activities.StudentDetailActivity">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:padding="4dp"
                     android:text="نام"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:padding="4dp"
                     android:text=" نام خانوادگی"
                     android:textColor="@android:color/white"
-                    android:textSize="16dp"/>
+                    android:textSize="19dp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     android:padding="4dp"
                     android:text="مقطع"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                 android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                     android:padding="4dp"
                     android:text="رشته"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                     android:padding="4dp"
                     android:text="پشتیبان"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -126,7 +126,7 @@
                     android:padding="4dp"
                     android:text="تولد"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -144,7 +144,27 @@
                     android:padding="4dp"
                     android:text="شماره"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
+
+                <View
+                    android:id="@+id/line_phone2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#ffffff" />
+
+                <TextView
+                    android:id="@+id/tv_title_phone2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:padding="4dp"
+                    android:text="شماره (2)"
+                    android:textColor="@android:color/white"
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -163,25 +183,27 @@
                     android:padding="4dp"
                     android:text="شماره والدین"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_content"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_student_fname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:padding="4dp"
                     android:text="حسن"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -192,13 +214,14 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_lname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="خوش کردار"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -209,13 +232,14 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="دوازدهم"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -226,13 +250,14 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_major"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="تجربی"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -243,13 +268,14 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_supporter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="پیمان جدیدی"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -260,13 +286,14 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_birth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="1378-02-22"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -277,13 +304,33 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_phone1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="09111375754"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
+
+                <View
+                    android:id="@+id/line_student_phone2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#bb73c85e" />
+
+                <TextView
+                    android:id="@+id/tv_student_phone2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:padding="4dp"
+                    android:text="09369845614"
+                    android:textSize="19sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -294,13 +341,17 @@
                     android:background="#bb73c85e" />
 
                 <TextView
+                    android:id="@+id/tv_student_pphone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginTop="6dp"
                     android:padding="4dp"
                     android:text="01333568945"
-                    android:textSize="16sp"/>
+                    android:textSize="19sp"/>
+
+
 
 
             </LinearLayout>
