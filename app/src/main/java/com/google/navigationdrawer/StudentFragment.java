@@ -88,6 +88,11 @@ public class StudentFragment extends Fragment implements AdapterView.OnItemClick
 
         Intent intent = new Intent(getContext(), StudentDetailActivity.class);
 
+        Student student = (Student) parent.getItemAtPosition(position);
+
+        intent.putExtra("student", student);
+
+
         startActivity(intent);
     }
 
