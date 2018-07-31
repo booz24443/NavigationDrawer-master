@@ -1,8 +1,13 @@
 package com.google.navigationdrawer.activities;
 
 import android.content.Context;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -29,6 +34,13 @@ public class StudentDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_detail);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //to change actionBar direction
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        }
 
         tvFName = findViewById(R.id.tv_student_fname);
         tvLName = findViewById(R.id.tv_student_lname);
@@ -59,7 +71,7 @@ public class StudentDetailActivity extends AppCompatActivity {
             findViewById(R.id.line_phone2).setVisibility(View.GONE);
             findViewById(R.id.tv_title_phone2).setVisibility(View.GONE);
 
-            findViewById(R.id.tv_student_phone2).setVisibility(View.GONE);
+            tvPhone2.setVisibility(View.GONE);
             findViewById(R.id.line_student_phone2).setVisibility(View.GONE);
         }
 
@@ -105,5 +117,29 @@ public class StudentDetailActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_student_detail, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+
+        } else if (id == R.id.item_delete) {
+
+        } else if (id == R.id.item_edit) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

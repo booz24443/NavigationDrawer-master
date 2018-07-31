@@ -8,24 +8,24 @@
     >
 
     <ImageView
-        android:id="@+id/img1"
+        android:id="@+id/img_student_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_person_24dp"
         />
     <ImageView
-        android:id="@+id/img2"
+        android:id="@+id/img_student_supporter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img1"
+        android:layout_below="@id/img_student_icon"
         android:layout_marginTop="5dp"
         android:background="@drawable/ic_support"
         />
     <ImageView
-        android:id="@+id/img3"
+        android:id="@+id/img_student_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img2"
+        android:layout_below="@id/img_student_supporter"
         android:layout_marginTop="5dp"
         android:background="@drawable/ic_phone_24dp"
         />
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
-        android:layout_toLeftOf="@id/img1"
+        android:layout_toLeftOf="@id/img_student_icon"
         android:text="حسین بیباک پور"
         />
 
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
         android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@id/img2"
+        android:layout_toLeftOf="@id/img_student_supporter"
         android:text="پشتیبان"
         />
 
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
         android:layout_marginTop="60dp"
-        android:layout_toLeftOf="@id/img2"
+        android:layout_toLeftOf="@id/img_student_supporter"
         android:text="989371525490"
         />
 
