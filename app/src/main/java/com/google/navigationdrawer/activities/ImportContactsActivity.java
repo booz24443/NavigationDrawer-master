@@ -12,6 +12,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.navigationdrawer.adapters.ContactAdapter;
 import com.google.navigationdrawer.GetContacts;
@@ -85,8 +86,6 @@ public class ImportContactsActivity extends AppCompatActivity implements Adapter
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//        parent.getItemAtPosition(position);
-
         if (!selectedContacts.contains(contacts.get(position))) {
 
             selectedContacts.add(contacts.get(position));
@@ -100,9 +99,9 @@ public class ImportContactsActivity extends AppCompatActivity implements Adapter
     }
 
     /**
-    This class loads contacts while displaying progressBar
+     * This class loads and imports contacts while displaying progressBar
      */
-    private class MyTask extends AsyncTask<String, String , String> {
+    private class MyTask extends AsyncTask<String, String , Integer> {
 
         @Override
         protected void onPreExecute() {
@@ -112,29 +111,34 @@ public class ImportContactsActivity extends AppCompatActivity implements Adapter
         }
 
         @Override
-        protected String doInBackground(String... strings) {
+        protected Integer doInBackground(String... strings) {
 
             if (strings[0].equals("Import")) {
 
                 contacts = GetContacts.getThemAll(getApplicationContext());
                 adapter = new ContactAdapter(ImportContactsActivity.this, contacts);
 
-            } else if (strings[0].equals("Save")) {
+                return -1;
 
-                for (Contact contact : selectedContacts) {
+            } else { //when :  (strings[0].equals("Save"))
 
-                    DBHelper.getInstance(getApplicationContext()).insertContact(contact);
-                }
+                int addCount = DBHelper.getInstance(getApplicationContext()).insertContacts(selectedContacts);
 
+
+                return addCount;
             }
 
-
-            return null;
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
+        protected void onPostExecute(Integer addCount) {
+            super.onPostExecute(addCount);
+
+            if (addCount != -1) {
+                Toast.makeText(getApplicationContext(), addCount + " مخاطب با موفقیت اضافه شدند", Toast.LENGTH_SHORT).show();
+
+                finish();
+            }
 
             listView.setAdapter(adapter);
 

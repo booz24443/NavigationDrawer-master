@@ -1,8 +1,11 @@
 package com.google.navigationdrawer.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.navigationdrawer.models.Student;
 import com.google.navigationdrawer.R;
@@ -23,6 +27,7 @@ public class StudentDetailActivity extends AppCompatActivity {
 
     LinearLayout contentLayout;
     private TextView tvLName, tvFName, tvMajor, tvLevel, tvSupporter, tvBirth, tvPhone1, tvPhone2, tvPPhone;
+    private Student student;
 
     //changing activity font
     @Override
@@ -34,6 +39,17 @@ public class StudentDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_detail);
+
+        student = getIntent().getParcelableExtra("student");
+
+        setViews();
+
+        startAnimation();
+
+
+    }
+
+    private void setViews() {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -64,8 +80,6 @@ public class StudentDetailActivity extends AppCompatActivity {
 
         contentLayout = findViewById(R.id.layout_content);
 
-        Student student = getIntent().getParcelableExtra("student");
-
         if (student.getPhone2() == null || student.getPhone2().isEmpty()) {
 
             findViewById(R.id.line_phone2).setVisibility(View.GONE);
@@ -75,9 +89,18 @@ public class StudentDetailActivity extends AppCompatActivity {
             findViewById(R.id.line_student_phone2).setVisibility(View.GONE);
         }
 
+        tvFName.setText(student.getFirstName());
+        tvLName.setText(student.getLastName());
+        tvMajor.setText(student.getMajor());
+        tvLevel.setText(student.getLevel());
+        tvSupporter.setText(student.getSupporter());
+        tvBirth.setText(student.getBirthDate());
+        tvPhone1.setText(student.getPhone1());
+        tvPhone2.setText(student.getPhone2());
+        tvPPhone.setText(student.getParentPhone());
+    }
 
-
-
+    private void startAnimation() {
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_open);
 
@@ -106,8 +129,6 @@ public class StudentDetailActivity extends AppCompatActivity {
                 if (tvPhone2.getVisibility() == View.INVISIBLE) {
                     tvPhone2.startAnimation(animation1);
                 }
-
-
             }
 
             @Override
@@ -115,8 +136,6 @@ public class StudentDetailActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     @Override
@@ -136,8 +155,29 @@ public class StudentDetailActivity extends AppCompatActivity {
 
         } else if (id == R.id.item_delete) {
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setMessage("آیا از حذف این دانش آموز اطمینان دارید؟");
+
+            builder.setNegativeButton("بله", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            }).setPositiveButton("خیر", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            builder.show();
+
         } else if (id == R.id.item_edit) {
 
+            Intent intent = new Intent(this, EditStudentActivity.class).putExtra("student", student);
+
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

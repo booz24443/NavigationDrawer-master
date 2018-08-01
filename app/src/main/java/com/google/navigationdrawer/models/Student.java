@@ -9,6 +9,7 @@ import com.google.navigationdrawer.SQLite.DBHelper;
 
 public class Student implements Parcelable{
 
+    private int studentId;
     private String firstName;
     private String lastName;
     private String level;
@@ -26,6 +27,7 @@ public class Student implements Parcelable{
 
     public Student(Parcel parcel) {
 
+        this.studentId = parcel.readInt();
         this.firstName = parcel.readString();
         this.lastName = parcel.readString();
         this.level = parcel.readString();
@@ -37,6 +39,13 @@ public class Student implements Parcelable{
         this.parentPhone = parcel.readString();
     }
 
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 
     public String getLastName() {
         return lastName;
@@ -113,6 +122,7 @@ public class Student implements Parcelable{
     public ContentValues getContentValues(){
         ContentValues values = new ContentValues();
 
+        values.put(DBHelper.CLM_ID, studentId);
         values.put(DBHelper.CLM_FIRST_NAME, firstName);
         values.put(DBHelper.CLM_LAST_NAME, lastName);
         values.put(DBHelper.CLM_LEVEL, level);
@@ -129,6 +139,8 @@ public class Student implements Parcelable{
     public static Student cursorToStudent(Cursor cursor){
 
         Student student = new Student();
+
+        student.setStudentId(cursor.getInt(cursor.getColumnIndex(DBHelper.CLM_ID)));
 
         student.setFirstName(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_FIRST_NAME)));
         student.setLastName(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_LAST_NAME)));
@@ -154,6 +166,7 @@ public class Student implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
+        dest.writeInt(studentId);
         dest.writeString(firstName);
         dest.writeString(lastName);
         dest.writeString(level);

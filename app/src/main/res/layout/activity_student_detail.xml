@@ -25,7 +25,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#bb73c85e"
+                android:background="@color/secondPrimaryColor"
                 android:orientation="vertical">
 
                 <TextView
@@ -211,7 +211,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_lname"
@@ -229,7 +229,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_level"
@@ -247,7 +247,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_major"
@@ -265,7 +265,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_supporter"
@@ -283,7 +283,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_birth"
@@ -301,7 +301,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_phone1"
@@ -320,7 +320,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_phone2"
@@ -338,7 +338,7 @@
                     android:layout_marginBottom="2dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="5dp"
-                    android:background="#bb73c85e" />
+                    android:background="@color/secondPrimaryColor" />
 
                 <TextView
                     android:id="@+id/tv_student_pphone"

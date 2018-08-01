@@ -15,7 +15,8 @@ public class GetContacts {
 
 
         ContentResolver resolver = context.getContentResolver();
-        Cursor cursor = resolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+        Cursor cursor = resolver.query(ContactsContract.Contacts.CONTENT_URI, null,
+                null, null,  "display_name ASC"); //sorting contacts list by name ASC
 
         ArrayList<Contact> contacts = new ArrayList<>();
 
@@ -37,7 +38,6 @@ public class GetContacts {
 
             while (phoneCursor.moveToNext()) {
                 String phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-
 
                 //prevent adding repeated phoneNumber
                 if ( !phoneNumber.isEmpty() ) {

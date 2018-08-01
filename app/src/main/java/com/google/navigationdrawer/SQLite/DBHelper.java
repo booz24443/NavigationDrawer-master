@@ -1,8 +1,12 @@
 package com.google.navigationdrawer.SQLite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.navigationdrawer.activities.ImportContactsActivity;
+import com.google.navigationdrawer.activities.NewStudentActivity;
 import com.google.navigationdrawer.models.Contact;
 import com.google.navigationdrawer.models.Student;
 
@@ -24,6 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "Students";
 
+    public static final String CLM_ID = "StudentID";
     public static final String CLM_FIRST_NAME = "FirstName";
     public static final String CLM_LAST_NAME = "LastName";
     public static final String CLM_LEVEL = "Level";
@@ -35,18 +40,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CLM_PARENT_PHONE = "ParentPhone";
 
     private static final String[] STUDENT_COLUMNS = {
-            CLM_FIRST_NAME, CLM_LAST_NAME, CLM_LEVEL, CLM_MAJOR, CLM_BIRTH,
+            CLM_ID, CLM_FIRST_NAME, CLM_LAST_NAME, CLM_LEVEL, CLM_MAJOR, CLM_BIRTH,
             CLM_SUPPORTER, CLM_PHONE1, CLM_PHONE2, CLM_PARENT_PHONE
     };
 
     private static final String CMD = "CREATE TABLE IF NOT EXISTS '" + TABLE_NAME + "' ( '" +
+            CLM_ID + "' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, '" +
             CLM_FIRST_NAME + "' TEXT, '" +
             CLM_LAST_NAME + "' TEXT NOT NULL, '" +
             CLM_LEVEL + "' TEXT, '" +
             CLM_MAJOR + "' TEXT, '" +
             CLM_BIRTH + "' TEXT, '" +
             CLM_SUPPORTER + "' TEXT, '" +
-            CLM_PHONE1 + "' TEXT PRIMARY KEY NOT NULL UNIQUE, '" +
+            CLM_PHONE1 + "' TEXT NOT NULL UNIQUE, '" +
             CLM_PHONE2 + "' TEXT, '" +
             CLM_PARENT_PHONE + "' TEXT " +
             ")";
@@ -79,35 +85,44 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertNewStudent(Student student) {
+    public boolean insertNewStudent(Student student) {
 
         SQLiteDatabase db = getWritableDatabase(PASS_PHRASE);
 
         long insertId = db.insert(TABLE_NAME, null, student.getContentValues());
 
-        if (insertId == -1) {
-            Log.i("MYTAG", "FAILED TO INSERT");
-
-        } else {
-            Log.i("MYTAG", "Insert ID wanst -1");
-        }
         db.close();
+
+        if (insertId == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
-    public void insertContact(Contact contact) {
+    public int insertContacts(ArrayList<Contact> contacts) {
 
+        int success = 0;
         SQLiteDatabase db = getWritableDatabase(PASS_PHRASE);
 
-        long insertId = db.insert(TABLE_NAME, null, contact.getContentValues());
+        db.beginTransaction();
 
-        if (insertId == -1) {
-            Log.i("MYTAG", "FAILED TO INSERT");
+        for (Contact contact : contacts) {
 
-        } else {
-            Log.i("MYTAG", "Insert ID wanst -1");
+            long insertId = db.insert(TABLE_NAME, null, contact.getContentValues());
+
+            if (insertId != -1) {
+                success++;
+            }
         }
+
+        db.setTransactionSuccessful();
+        db.endTransaction();
+
         db.close();
 
+        return success;
     }
 
     public List<Student> getAllStudents() {
@@ -131,5 +146,16 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
 
         return students;
+    }
+
+    public void update(Student student, int studentID) {
+
+        SQLiteDatabase db = getWritableDatabase(PASS_PHRASE);
+
+        int count = db.update(TABLE_NAME, student.getContentValues(),CLM_ID + " = " + studentID, null);
+
+        Log.i("MYTAG" , count + " rows updated");
+
+        if (db.isOpen()) db.close();
     }
 }

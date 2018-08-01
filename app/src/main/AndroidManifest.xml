@@ -40,6 +40,8 @@
             android:label=""
             />
 
+        <activity android:name=".activities.EditStudentActivity" />
+
     </application>
 
 </manifest>

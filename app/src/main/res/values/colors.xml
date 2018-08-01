@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#40bc22</color>
-    <color name="colorPrimaryDark">#1c7e2e</color>
+    <color name="colorPrimary">#dd982a</color>
+    <color name="colorPrimaryDark">#a06429</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorLightGray">#d6ece0</color>
-
-    <color name="colorItemPressed">#66ccff</color>
-    <color name="colorItemSelected">#009bc6</color>
+    <color name="secondPrimaryColor">#e6ad76</color>
 </resources>

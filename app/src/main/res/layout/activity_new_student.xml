@@ -19,7 +19,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
-        android:background="#91e29a"
+        android:background="@color/secondPrimaryColor"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -55,7 +55,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
-        android:background="#91e29a"
+        android:background="@color/secondPrimaryColor"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -81,7 +81,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
-        android:background="#91e29a"
+        android:background="@color/secondPrimaryColor"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -107,7 +107,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
-        android:background="#91e29a"
+        android:background="@color/secondPrimaryColor"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -151,7 +151,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
-        android:background="#91e29a"
+        android:background="@color/secondPrimaryColor"
         android:drawableLeft="@drawable/ic_support"
         android:drawableStart="@drawable/ic_support"
         android:hint=" پشتیبان"
@@ -166,7 +166,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
-            android:background="#91e29a"
+            android:background="@color/secondPrimaryColor"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -205,10 +205,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
-            android:background="#91e29a"
+            android:background="@color/secondPrimaryColor"
             android:drawableLeft="@drawable/ic_phone_24dp"
             android:drawableStart="@drawable/ic_phone_24dp"
-            android:hint=" شماره"
+            android:hint=" شماره (2)"
             android:padding="10dp"
             android:textColorHint="@android:color/white"
             android:textSize="20sp"
@@ -222,7 +222,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="#91e29a"
+            android:background="@color/secondPrimaryColor"
             android:drawableLeft="@drawable/ic_phone_24dp"
             android:drawableStart="@drawable/ic_phone_24dp"
             android:hint=" شماره والدین"
