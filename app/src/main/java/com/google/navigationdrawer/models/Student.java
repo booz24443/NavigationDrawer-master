@@ -12,7 +12,7 @@ public class Student implements Parcelable{
     private int studentId;
     private String firstName;
     private String lastName;
-    private String level;
+    private String grade;
     private String major;
     private String supporter;
     private String phone1;
@@ -30,7 +30,7 @@ public class Student implements Parcelable{
         this.studentId = parcel.readInt();
         this.firstName = parcel.readString();
         this.lastName = parcel.readString();
-        this.level = parcel.readString();
+        this.grade = parcel.readString();
         this.major = parcel.readString();
         this.birthDate = parcel.readString();
         this.supporter = parcel.readString();
@@ -63,12 +63,12 @@ public class Student implements Parcelable{
         this.firstName = name;
     }
 
-    public String getLevel() {
-        return level;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public String getPhone1() {
@@ -125,7 +125,7 @@ public class Student implements Parcelable{
         values.put(DBHelper.CLM_ID, studentId);
         values.put(DBHelper.CLM_FIRST_NAME, firstName);
         values.put(DBHelper.CLM_LAST_NAME, lastName);
-        values.put(DBHelper.CLM_LEVEL, level);
+        values.put(DBHelper.CLM_LEVEL, grade);
         values.put(DBHelper.CLM_MAJOR, major);
         values.put(DBHelper.CLM_BIRTH, birthDate);
         values.put(DBHelper.CLM_SUPPORTER, supporter);
@@ -145,7 +145,7 @@ public class Student implements Parcelable{
         student.setFirstName(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_FIRST_NAME)));
         student.setLastName(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_LAST_NAME)));
 
-        student.setLevel(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_LEVEL)));
+        student.setGrade(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_LEVEL)));
         student.setMajor(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_MAJOR)));
 
         student.setSupporter(cursor.getString(cursor.getColumnIndex(DBHelper.CLM_SUPPORTER)));
@@ -169,7 +169,7 @@ public class Student implements Parcelable{
         dest.writeInt(studentId);
         dest.writeString(firstName);
         dest.writeString(lastName);
-        dest.writeString(level);
+        dest.writeString(grade);
         dest.writeString(major);
         dest.writeString(birthDate);
         dest.writeString(supporter);

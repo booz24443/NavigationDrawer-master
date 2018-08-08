@@ -23,7 +23,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class EditStudentActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Spinner lvlSpinner, majorSpinner, yearSpinner, daySpinner, monthSpinner;
+    private Spinner gradeSpinner, majorSpinner, yearSpinner, daySpinner, monthSpinner;
     private EditText edtFirstName, edtLastName, edtSupporter, edtPhone1, edtPhone2, edtParentPhone;
     private ImageButton imgMore;
     private ArrayAdapter adapter;
@@ -67,7 +67,7 @@ public class EditStudentActivity extends AppCompatActivity implements View.OnCli
 
     private void initViews() {
 
-        lvlSpinner = findViewById(R.id.spinner_lvl);
+        gradeSpinner = findViewById(R.id.spinner_lvl);
         majorSpinner = findViewById(R.id.spinner_major);
         yearSpinner = findViewById(R.id.spinner_year);
         monthSpinner = findViewById(R.id.spinner_month);
@@ -87,7 +87,7 @@ public class EditStudentActivity extends AppCompatActivity implements View.OnCli
         phone1 = student.getPhone1();
         phone2 = student.getPhone2();
         parentPhone = student.getParentPhone();
-        level = student.getLevel();
+        level = student.getGrade();
         major = student.getMajor();
         birthDate = student.getBirthDate();
 
@@ -118,11 +118,11 @@ public class EditStudentActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setSpinners() {
-        //level spinner
+        //grade spinner
         spinnerItems = getResources().getStringArray(R.array.levels);
         adapter = new ArrayAdapter<>(this, R.layout.item_spinner_student, spinnerItems);
 
-        lvlSpinner.setAdapter(adapter);
+        gradeSpinner.setAdapter(adapter);
 
 
 
@@ -169,11 +169,11 @@ public class EditStudentActivity extends AppCompatActivity implements View.OnCli
 
 
         if (level != null) {
-            //level spinner selection
+            //grade spinner selection
             for (int i = 0; i < spinnerItems.length; i++) {
 
                 if (spinnerItems[i].equals(level)) {
-                    lvlSpinner.setSelection(i);
+                    gradeSpinner.setSelection(i);
                     break;
                 }
             }
@@ -253,7 +253,7 @@ public class EditStudentActivity extends AppCompatActivity implements View.OnCli
 
                 student.setFirstName(edtFirstName.getText().toString().trim());
                 student.setLastName(lastName);
-                student.setLevel(lvlSpinner.getSelectedItem().toString());
+                student.setGrade(gradeSpinner.getSelectedItem().toString());
                 student.setMajor(majorSpinner.getSelectedItem().toString());
 
                 student.setBirthDate(yearSpinner.getSelectedItem().toString() +

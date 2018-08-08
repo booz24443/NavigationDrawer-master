@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -142,7 +141,7 @@ public class NewStudentActivity extends AppCompatActivity implements View.OnClic
 
                 student.setFirstName(edtFirstName.getText().toString().trim());
                 student.setLastName(lastName);
-                student.setLevel(lvlSpinner.getSelectedItem().toString());
+                student.setGrade(lvlSpinner.getSelectedItem().toString());
                 student.setMajor(majorSpinner.getSelectedItem().toString());
 
                 student.setBirthDate(yearSpinner.getSelectedItem().toString() +
